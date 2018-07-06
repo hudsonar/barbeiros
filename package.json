@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.config.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -20,8 +20,16 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@nebular/theme": "^2.0.0-rc.8",
+    "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
+    "ionicons": "^4.2.4",
+    "jquery": "^1.9.1",
+    "ng2-completer": "^2.0.8",
+    "ng2-smart-table": "^1.3.4",
+    "ngx-mask": "^2.9.6",
     "rxjs": "^6.0.0",
+    "rxjs-compat": "^6.2.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

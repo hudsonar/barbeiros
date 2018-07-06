@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-10">
+    <nb-card>
+      <nb-card-header>Turno de Trabalho</nb-card-header>
+      <nb-card-body>
+
+          <div class="form-group row">
+              <label for="inputCodigo" class="col-sm-3 col-form-label">Codigo</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="inputCodigo"[(ngModel)]="turnoTrabalho.id" placeholder="Código" [readonly]="!pesquisa">
+              </div>
+            </div>
+          <div class="form-group row">
+            <label for="inputDescricao" class="col-sm-3 col-form-label">Descrição</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputDescricao"[(ngModel)]="turnoTrabalho.descricao" placeholder="Descrição">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputHoraInicio" class="col-sm-3 col-form-label">Hora Inicio</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputHoraInicio" [(ngModel)]="txtDataInico" placeholder="Hora Inicio"   mask='99:99'>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputHoraFinal" class="col-sm-3 col-form-label">Hora Fim</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputHoraFinal" [(ngModel)]="txtDataFim" placeholder="Hora Final"   mask='99:99'>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="button" class="btn btn-primary btn-info btn-tn" (click)="novo()" >Novo</button>
+              <button type="button" class="btn btn-primary btn-info btn-tn" (click)="save()" [disabled]="pesquisa">Salvar</button>
+              <button type="button" class="btn btn-primary btn-info btn-tn" (click)="pesquisar()" [disabled]="!pesquisa">Pesquisar</button>
+              <button type="button" class="btn btn-primary btn-danger btn-tn" (click)="cancelar()">Cancelar</button>
+            </div>
+          </div>
+
+      </nb-card-body>
+    </nb-card>
+    <nb-card accent="info">
+      <nb-card-header>Turnos</nb-card-header>
+      <nb-card-body>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tr>
+                <th>editar</th>
+                <th>Apagar</th>
+                <th *ngFor="let coluna of columns" >{{coluna.title}}</th>
+              </tr>
+              <tr *ngFor="let turnoTabela of turnos">
+                <td >
+                    <i (click)="editar(turnoTabela)" class="ion-ios-create"></i>
+                </td>
+                <td  >
+                    <i (click)="apagar(turnoTabela)" class="ion-ios-remove-circle"></i>
+                </td>
+                <td>{{turnoTabela.id}}</td>
+                <td>{{turnoTabela.descricao}}</td>
+                <td>{{turnoTabela.horaInicio}}</td>
+                <td>{{turnoTabela.horaFim}}</td>
+              </tr>
+            </table>
+          </div>
+      </nb-card-body>
+    </nb-card>
+</div>
